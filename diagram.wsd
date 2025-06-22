@@ -1,0 +1,52 @@
+@startuml
+left to right direction
+
+actor Admin
+actor Guru
+actor "Orang Tua" as OrangTua
+
+rectangle "Sistem Presensi Online" {
+  (Login)
+  (Kelola Data Guru)
+  (Kelola Data Siswa)
+  (Kelola Data Kelas)
+  (Kelola Jadwal Pelajaran)
+  (Lihat Laporan Absensi)
+  (Export Laporan)
+  (Lihat Jadwal Mengajar)
+  (Input Absensi Siswa)
+  (Lihat Laporan Absensi Kelas)
+  (Edit Profil)
+  (Kirim Notifikasi WA ke Orang Tua)
+  (Terima Notifikasi WA)
+  (Validasi Data Absensi)
+  (Edit Absensi Siswa)
+  (Filter Berdasarkan Kelas/Tanggal)
+}
+
+' Relasi Admin
+Admin -- (Login)
+Admin -- (Kelola Data Guru)
+Admin -- (Kelola Data Siswa)
+Admin -- (Kelola Data Kelas)
+Admin -- (Kelola Jadwal Pelajaran)
+Admin -- (Lihat Laporan Absensi)
+Admin -- (Export Laporan)
+
+' Relasi Guru
+Guru -- (Login)
+Guru -- (Lihat Jadwal Mengajar)
+Guru -- (Input Absensi Siswa)
+Guru -- (Lihat Laporan Absensi Kelas)
+Guru -- (Export Laporan)
+Guru -- (Edit Profil)
+
+' Relasi Orang Tua
+(Kirim Notifikasi WA ke Orang Tua) -- OrangTua : menerima
+OrangTua -- (Terima Notifikasi WA)
+
+' Include dan extend
+(Input Absensi Siswa) .down.> (Validasi Data Absensi) : <<include>>
+(Input Absensi Siswa) .down.> (Kirim Notifikasi WA ke Orang Tua) : <<include>>
+(Input Absensi Siswa) .down.> (Edit Absensi Siswa) : <<extend>>
+(Lihat Laporan Absensi Kelas) .down.> (Filter

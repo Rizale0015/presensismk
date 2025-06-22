@@ -1,0 +1,141 @@
+/* Sidebar base styles */
+#sidebarMenu {
+    background-color: #343a40;
+    min-height: 100vh;
+    color: #fff;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    width: 250px;
+    overflow-y: auto;
+    padding-top: 1rem;
+    z-index: 1030;
+}
+
+/* Sidebar navigation links */
+#sidebarMenu .nav-link {
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-left: 3px solid transparent;
+}
+
+#sidebarMenu .nav-link:hover {
+    background-color: #495057;
+    border-left-color: #0d6efd;
+}
+
+#sidebarMenu .nav-link.active {
+    background-color: #0d6efd;
+    border-left-color: #fff;
+}
+
+/* Dropdown menu styles */
+#sidebarMenu .dropdown-menu {
+    background-color: #343a40;
+    border: none;
+    margin-left: 1rem;
+    padding: 0;
+}
+
+#sidebarMenu .dropdown-item {
+    color: #fff;
+    padding: 0.5rem 1rem;
+}
+
+#sidebarMenu .dropdown-item:hover {
+    background-color: #495057;
+    color: #fff;
+}
+
+#sidebarMenu .dropdown-item.active {
+    background-color: #0d6efd;
+}
+
+/* Dropdown menu animasi dan hover */
+.animated--grow-in {
+    animation: growIn 0.2s ease-in;
+}
+@keyframes growIn {
+    0% { transform: scale(0.95); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+.dropdown-menu .dropdown-item {
+    transition: background 0.2s, color 0.2s;
+    border-radius: 5px;
+}
+.dropdown-menu .dropdown-item:hover {
+    background: #e9ecef;
+    color: #0d6efd;
+}
+.dropdown-menu .dropdown-item i {
+    transition: color 0.2s;
+}
+.dropdown-menu .dropdown-item:hover i {
+    color: #0d6efd !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 767.98px) {
+    #sidebarMenu {
+        position: relative;
+        width: 100%;
+        top: 0;
+    }
+    
+    .main-content {
+        margin-left: 0;
+    }
+}
+
+@media (min-width: 768px) {
+    .main-content {
+        margin-left: 250px;
+    }
+}
+@media (max-width: 767.98px) {
+    .table th, .table td {
+        font-size: 0.95rem;
+        padding: 0.5rem;
+    }
+}
+@media (max-width: 767.98px) {
+  table.table thead {
+    display: none !important;
+  }
+  table.table, table.table tbody, table.table tr, table.table td {
+    display: block !important;
+    width: 100% !important;
+  }
+  table.table tr {
+    margin-bottom: 1rem;
+    border: 1px solid #e3e3e3;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 8px #4f8cff11;
+    padding: 0.7rem;
+    background: #fff;
+  }
+  table.table td {
+    border: none !important;
+    border-bottom: 1px solid #f0f0f0 !important;
+    font-size: 1rem;
+    padding: 0.4rem 0.7rem !important;
+    position: relative;
+  }
+  table.table td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #4f8cff;
+    min-width: 90px;
+    display: inline-block;
+    margin-right: 1rem;
+  }
+}
+
+/* Fix for mobile sidebar menu item active state for Laporan Siswa */
+.offcanvas .nav-link.active[href="guru_laporan.php"],
+.offcanvas .nav-link.active[href$="guru_laporan.php"] {
+    background: #fff !important;
+    color: #4f8cff !important;
+    font-weight: bold !important;
+    box-shadow: 0 2px 8px #4f8cff22 !important;
+}
